@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fortune Logistics — Our Clients | Trusted Partners</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}img{max-width:100%;height:auto}
+html{scroll-behavior:smooth}
+html{overflow-x:hidden}body{overflow-x:hidden;font-family:'Inter',sans-serif;color:#111827;background:#fff;-webkit-font-smoothing:antialiased}
+
+/* NAV */
+nav{background:#fff;border-bottom:1px solid #F3F4F6;position:sticky;top:0;z-index:100;box-shadow:0 1px 8px rgba(0,0,0,.04)}
+.nav-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;padding:0 48px;height:72px;gap:40px}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;flex-shrink:0}
+.nav-logo img{height:46px;width:46px;object-fit:contain;border-radius:50%}
+.nav-logo-name{font-family:'DM Serif Display',serif;font-size:20px;color:#111827;line-height:1.1}
+.nav-logo-iso{font-size:9px;color:#00AEEF;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.nav-links{display:flex;align-items:center;gap:2px;flex:1}
+.nav-links a{color:#4B5563;text-decoration:none;font-size:13px;font-weight:500;padding:7px 13px;border-radius:5px;transition:color .2s,background .2s;white-space:nowrap}
+.nav-links a:hover{color:#111827;background:#F9FAFB}
+.nav-links a.active{color:#F47920;font-weight:700}
+.nav-right{display:flex;align-items:center;gap:20px;flex-shrink:0}
+.nav-phone{font-size:13px;font-weight:600;color:#374151;text-decoration:none;display:flex;align-items:center;gap:7px}
+.nav-phone svg{color:#F47920}
+.nav-phone:hover{color:#F47920}
+.btn-nav{background:#F47920;color:#fff;font-size:13px;font-weight:700;padding:10px 24px;border-radius:6px;text-decoration:none;letter-spacing:.01em;transition:all .2s}
+.btn-nav:hover{background:#e06810;transform:translateY(-1px);box-shadow:0 4px 16px rgba(244,121,32,.3)}
+
+/* HAMBURGER + DRAWER */
+.nav-hamburger{display:none;flex-direction:column;justify-content:space-between;width:28px;height:20px;background:none;border:none;cursor:pointer;padding:0;flex-shrink:0;margin-left:8px}
+.nav-hamburger span{display:block;height:2px;background:#111827;border-radius:2px;transition:all .3s}
+.nav-hamburger.open span:nth-child(1){transform:translateY(9px) rotate(45deg)}
+.nav-hamburger.open span:nth-child(2){opacity:0}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-9px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.5)}
+.mobile-menu.open{display:block}
+.mobile-menu-drawer{position:absolute;top:0;right:0;bottom:0;width:min(320px,85vw);background:#fff;display:flex;flex-direction:column;box-shadow:-8px 0 40px rgba(0,0,0,.15);transform:translateX(100%);transition:transform .3s cubic-bezier(.4,0,.2,1)}
+.mobile-menu.open .mobile-menu-drawer{transform:translateX(0)}
+.mobile-drawer-head{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;border-bottom:1px solid #F3F4F6}
+.mobile-drawer-logo{font-family:'DM Serif Display',serif;font-size:17px;color:#111827}
+.mobile-drawer-close{background:none;border:none;cursor:pointer;color:#6B7280;padding:4px;line-height:1}
+.mobile-drawer-links{flex:1;overflow-y:auto;padding:12px 0}
+.mobile-drawer-links a{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;font-size:15px;font-weight:600;color:#374151;text-decoration:none;border-bottom:1px solid #F9FAFB;transition:background .15s,color .15s}
+.mobile-drawer-links a:hover{background:#FFF7F2;color:#F47920}
+.mobile-drawer-foot{padding:20px 24px;border-top:1px solid #F3F4F6;display:flex;flex-direction:column;gap:10px}
+.mobile-drawer-phone{display:flex;align-items:center;justify-content:center;gap:8px;font-size:14px;font-weight:700;color:#374151;text-decoration:none;padding:12px;border:1.5px solid #E5E7EB;border-radius:8px}
+.mobile-drawer-cta{background:#F47920;color:#fff;font-size:14px;font-weight:700;padding:13px;border-radius:8px;text-decoration:none;text-align:center;transition:background .15s}
+.mobile-drawer-cta:hover{background:#e0691a}
+
+/* PAGE HERO */
+.page-hero{display:flex;min-height:380px;overflow:hidden}
+.page-hero-left{flex:0 0 55%;display:flex;align-items:center;padding:64px 0 64px max(48px,calc((100vw - 1280px)/2 + 48px));background:#fff}
+.page-hero-left-inner{max-width:520px}
+.breadcrumb{display:flex;align-items:center;gap:6px;font-size:11px;color:#9CA3AF;font-weight:500;margin-bottom:20px}
+.breadcrumb a{color:#9CA3AF;text-decoration:none;transition:color .15s}
+.breadcrumb a:hover{color:#F47920}
+.breadcrumb svg{flex-shrink:0}
+.page-hero-eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.page-hero-eyebrow-line{width:28px;height:3px;background:#F47920;flex-shrink:0}
+.page-hero-eyebrow-text{font-size:10px;font-weight:800;color:#F47920;letter-spacing:.2em;text-transform:uppercase}
+.page-hero h1{font-family:'DM Serif Display',serif;font-size:50px;line-height:1.06;color:#111827;letter-spacing:-2px;margin-bottom:18px}
+.page-hero h1 em{font-style:normal;color:#00AEEF}
+.page-hero-sub{font-size:15px;color:#6B7280;line-height:1.75;max-width:420px;margin-bottom:28px}
+.page-hero-pills{display:flex;gap:10px;flex-wrap:wrap}
+.page-hero-pill{display:flex;align-items:center;gap:7px;font-size:12px;font-weight:600;color:#374151;padding:7px 14px;border-radius:30px;border:1.5px solid #E5E7EB;background:#F9FAFB}
+.page-hero-pill svg{color:#F47920;flex-shrink:0}
+.page-hero-right{flex:1;position:relative;overflow:hidden;clip-path:polygon(6% 0,100% 0,100% 100%,0 100%)}
+.page-hero-right img{width:100%;height:100%;object-fit:cover;object-position:center}
+
+/* SECTION SHARED */
+.section{padding:104px 48px}
+.s-inner{max-width:1280px;margin:0 auto}
+.s-tag{font-size:10px;font-weight:800;color:#F47920;letter-spacing:.2em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.s-tag::before{content:'';width:20px;height:2px;background:#F47920;flex-shrink:0}
+.s-title{font-family:'DM Serif Display',serif;font-size:42px;color:#111827;letter-spacing:-1.5px;line-height:1.1;margin-bottom:14px}
+.s-sub{font-size:15px;color:#6B7280;line-height:1.75;max-width:540px}
+
+/* CLIENTS GRID */
+.clients-intro{background:#F8FAFC;padding:64px 48px;text-align:center}
+.clients-intro-title{font-family:'DM Serif Display',serif;font-size:36px;color:#111827;letter-spacing:-1px;margin-bottom:16px}
+.clients-intro-sub{font-size:15px;color:#6B7280;line-height:1.7;max-width:680px;margin:0 auto}
+
+.clients-grid-section{padding:80px 48px;background:#fff}
+.clients-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);gap:32px}
+.client-card{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 24px;border:1px solid #F3F4F6;border-radius:12px;transition:all .3s;background:#fff;min-height:180px}
+.client-card:hover{border-color:#F47920;box-shadow:0 8px 32px rgba(244,121,32,.08);transform:translateY(-4px)}
+.client-logo-wrap{width:140px;height:70px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;flex-shrink:0}
+.client-logo{max-width:100%;max-height:100%;object-fit:contain;filter:grayscale(100%);opacity:.75;transition:all .3s}
+.client-card:hover .client-logo{filter:grayscale(0%);opacity:1}
+.client-name{font-size:13px;font-weight:700;color:#374151;text-align:center;letter-spacing:.02em}
+.client-industry{font-size:11px;color:#9CA3AF;margin-top:6px;text-transform:uppercase;letter-spacing:.08em}
+
+/* CLIENT STRIP */
+.clients-section{padding:44px 48px;background:#F8FAFC;border-top:1px solid #E5E7EB;border-bottom:1px solid #E5E7EB}
+.clients-label{font-size:10px;font-weight:700;color:#9CA3AF;letter-spacing:.18em;text-transform:uppercase;text-align:center;margin-bottom:24px}
+.clients-strip{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:0}
+.cl-name{font-size:14px;font-weight:700;color:#9CA3AF;padding:8px 28px;border-right:1px solid #E5E7EB;letter-spacing:.03em;cursor:default;transition:color .2s}
+.cl-name:last-child{border-right:none}
+.cl-name:hover{color:#374151}
+
+/* TRUST BADGES */
+.trust-section{padding:80px 48px;background:#fff}
+.trust-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:40px;text-align:center}
+.trust-item{padding:24px}
+.trust-icon{width:56px;height:56px;border-radius:12px;background:#FFF7F2;display:flex;align-items:center;justify-content:center;color:#F47920;margin:0 auto 18px}
+.trust-title{font-size:15px;font-weight:700;color:#111827;margin-bottom:8px}
+.trust-desc{font-size:13px;color:#6B7280;line-height:1.6}
+
+/* CTA */
+.cta-section{background:#F47920;padding:80px 48px}
+.cta-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr auto;align-items:center;gap:60px}
+.cta-label{font-size:10px;font-weight:800;color:rgba(255,255,255,.6);letter-spacing:.2em;text-transform:uppercase;margin-bottom:14px}
+.cta-title{font-family:'DM Serif Display',serif;font-size:44px;color:#fff;letter-spacing:-1.5px;line-height:1.08;margin-bottom:12px}
+.cta-sub{font-size:15px;color:rgba(255,255,255,.7);line-height:1.7;max-width:520px}
+.cta-btns{display:flex;flex-direction:column;gap:12px;flex-shrink:0;min-width:200px}
+.btn-cta-white{background:#fff;color:#F47920;font-size:14px;font-weight:700;padding:14px 28px;border-radius:6px;text-decoration:none;text-align:center;transition:all .2s}
+.btn-cta-white:hover{background:#FFF7F2;transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.12)}
+.btn-cta-wa{background:rgba(255,255,255,.15);color:#fff;border:1.5px solid rgba(255,255,255,.3);font-size:14px;font-weight:700;padding:14px 28px;border-radius:6px;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:9px;transition:all .2s}
+.btn-cta-wa:hover{background:rgba(255,255,255,.25);border-color:rgba(255,255,255,.5)}
+
+/* FOOTER */
+footer{background:#0F172A;padding:64px 48px 24px}
+.footer-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:2.2fr 1fr 1fr 1.4fr;gap:52px;margin-bottom:48px}
+.f-logo{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.f-logo img{height:38px;width:38px;object-fit:contain;border-radius:50%}
+.f-logo-name{font-family:'DM Serif Display',serif;font-size:18px;color:#fff}
+.f-tagline{font-size:13px;color:rgba(255,255,255,.3);line-height:1.72;margin-bottom:20px;max-width:260px}
+.f-contact a{display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,.38);text-decoration:none;margin-bottom:9px;transition:color .2s}
+.f-contact a:hover{color:#F47920}
+.f-contact svg{color:#F47920;flex-shrink:0}
+.f-col-title{font-size:9px;font-weight:800;color:#F47920;letter-spacing:.16em;text-transform:uppercase;margin-bottom:18px}
+.f-col a{display:block;font-size:13px;color:rgba(255,255,255,.35);text-decoration:none;margin-bottom:10px;transition:color .2s}
+.f-col a:hover{color:#fff}
+.footer-bottom{max-width:1280px;margin:0 auto;border-top:1px solid rgba(255,255,255,.06);padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:11px;color:rgba(255,255,255,.18);flex-wrap:wrap;gap:10px}
+.footer-bottom a{color:rgba(255,255,255,.18);text-decoration:none}
+.f-iso{font-size:10px;font-weight:700;color:#F47920;background:rgba(244,121,32,.1);border:1px solid rgba(244,121,32,.2);padding:3px 10px;border-radius:3px;letter-spacing:.08em}
+
+/* WA FLOAT */
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:999;background:#25D366;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.45);text-decoration:none;transition:transform .3s,box-shadow .3s}
+.wa-float:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,.55)}
+
+/* RESPONSIVE — TABLET */
+@media(max-width:1024px){
+  .nav-inner{padding:0 24px}
+  .page-hero{flex-direction:column}
+  .page-hero-left{flex:none;padding:48px 24px}
+  .page-hero-right{height:280px;flex:none;clip-path:none}
+  .page-hero h1{font-size:40px}
+  .clients-grid{grid-template-columns:repeat(3,1fr);gap:24px}
+  .trust-grid{grid-template-columns:1fr 1fr}
+  .cta-inner{grid-template-columns:1fr;gap:28px}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
+  .section{padding:80px 24px}
+  .cta-section{padding:64px 24px}
+  .clients-section{padding:40px 24px}
+  .clients-intro{padding:48px 24px}
+  .clients-grid-section{padding:64px 24px}
+}
+
+/* RESPONSIVE — MOBILE */
+@media(max-width:640px){
+  .nav-links,.nav-right{display:none}
+  .nav-hamburger{display:flex}
+  .page-hero-left{padding:40px 16px}
+  .page-hero h1{font-size:32px;letter-spacing:-1px}
+  .page-hero-sub{font-size:14px}
+  .clients-intro-title{font-size:28px}
+  .clients-grid{grid-template-columns:1fr 1fr;gap:16px}
+  .client-card{padding:24px 16px;min-height:160px}
+  .client-logo-wrap{width:100px;height:50px}
+  .trust-grid{grid-template-columns:1fr;gap:24px}
+  .cta-title{font-size:32px}
+  .footer-grid{grid-template-columns:1fr;gap:28px}
+  .section{padding:64px 16px}
+  .cta-section{padding:48px 16px}
+  .clients-section{padding:32px 16px}
+  .clients-intro{padding:40px 16px}
+  .clients-grid-section{padding:48px 16px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="./fl_logo.jpeg" alt="Fortune Logistics">
+      <div>
+        <div class="nav-logo-name">Fortune Logistics</div>
+        <div class="nav-logo-iso">ISO 9001-2015</div>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="services.html">Services</a>
+      <a href="industries.html">Industries</a>
+      <a href="network.html">Network</a>
+      <a href="why-fortune.html">Why Fortune</a>
+      <a href="clients.html" class="active">Clients</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="nav-right">
+      <a href="tel:+919970318707" class="nav-phone">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .99h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        +91 9970 318 707
+      </a>
+      <a href="contact.html" class="btn-nav">Get a Quote</a>
+    </div>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-drawer">
+    <div class="mobile-drawer-head">
+      <div class="mobile-drawer-logo">Fortune Logistics</div>
+      <button class="mobile-drawer-close" id="mobileClose" aria-label="Close menu">✕</button>
+    </div>
+    <div class="mobile-drawer-links">
+      <a href="services.html">Services</a>
+      <a href="industries.html">Industries</a>
+      <a href="network.html">Network</a>
+      <a href="why-fortune.html">Why Fortune</a>
+      <a href="clients.html" style="color:#F47920">Clients</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="mobile-drawer-foot">
+      <a href="tel:+919970318707" class="mobile-drawer-phone">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .99h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        +91 9970 318 707
+      </a>
+      <a href="contact.html" class="mobile-drawer-cta">Request a Quote</a>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-left">
+    <div class="page-hero-left-inner">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        <span>Our Clients</span>
+      </div>
+      <div class="page-hero-eyebrow">
+        <div class="page-hero-eyebrow-line"></div>
+        <div class="page-hero-eyebrow-text">Trusted Partners</div>
+      </div>
+      <h1>Who We <em>Serve</em></h1>
+      <p class="page-hero-sub">500+ enterprises across automotive, FMCG, pharmaceuticals, and industrial sectors rely on Fortune Logistics for their critical freight movements across India.</p>
+      <div class="page-hero-pills">
+        <div class="page-hero-pill">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          ISO 9001-2015 Certified
+        </div>
+        <div class="page-hero-pill">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          Pan-India Coverage
+        </div>
+        <div class="page-hero-pill">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          On-Time Delivery
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-hero-right">
+    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80" alt="Logistics partnership">
+  </div>
+</section>
+
+<!-- CLIENTS INTRO -->
+<section class="clients-intro">
+  <div class="s-inner">
+    <h2 class="clients-intro-title">Building Trust Through Reliable Execution</h2>
+    <p class="clients-intro-sub">From global manufacturing leaders to fast-growing Indian enterprises, our clients span diverse industries — united by their need for logistics partners who deliver on promises. Here are some of the companies that trust Fortune Logistics with their freight.</p>
+  </div>
+</section>
+
+<!-- CLIENTS GRID -->
+<section class="clients-grid-section">
+  <div class="clients-grid">
+    <!-- Client 1: Aberdare Technologies -->
+    <div class="client-card">
+      <div class="client-logo-wrap">
+        <img src="https://aberdaretech.com/wp-content/uploads/2021/07/Aberdare-Logo.png" alt="Aberdare Technologies" class="client-logo" onerror="this.style.display='none';this.parentElement.innerHTML='<svg width=\'80\' height=\'40\' viewBox=\'0 0 80 40\'><rect width=\'80\' height=\'40\' fill=\'#F47920\' rx=\'4\'/><text x=\'40\' y=\'25\' text-anchor=\'middle\' fill=\'white\' font-size=\'10\' font-weight=\'bold\'>ABERDARE</text></svg>'">
+      </div>
+      <div class="client-name">Aberdare Technologies</div>
+      <div class="client-industry">Electrical Components</div>
+    </div>
+
+    <!-- Client 2: Placeholder -->
+    <div class="client-card">
+      <div class="client-logo-wrap">
+        <svg width="120" height="60" viewBox="0 0 120 60">
+          <rect width="120" height="60" fill="#00AEEF" rx="6"/>
+          <text x="60" y="35" text-anchor="middle" fill="white" font-size="11" font-weight="bold">CLIENT LOGO</text>
+        </svg>
+      </div>
+      <div class="client-name">Enterprise Partner</div>
+      <div class="client-industry">Manufacturing</div>
+    </div>
+
+    <!-- Client 3: Panchshil Realty -->
+    <div class="client-card">
+      <div class="client-logo-wrap">
+        <svg width="120" height="60" viewBox="0 0 120 60">
+          <rect width="120" height="60" fill="#1a1a2e" rx="6"/>
+          <text x="60" y="30" text-anchor="middle" fill="white" font-size="12" font-weight="bold">PANCSHIL</text>
+          <text x="60" y="44" text-anchor="middle" fill="white" font-size="8">REALTY</text>
+        </svg>
+      </div>
+      <div class="client-name">Panchshil Realty</div>
+      <div class="client-industry">Real Estate</div>
+    </div>
+
+    <!-- Client 4: Valmet -->
+    <div class="client-card">
+      <div class="client-logo-wrap">
+        <svg width="120" height="60" viewBox="0 0 120 60">
+          <rect width="120" height="60" fill="#005EB8" rx="6"/>
+          <text x="60" y="35" text-anchor="middle" fill="white" font-size="14" font-weight="bold">VALMET</text>
+        </svg>
+      </div>
+      <div class="client-name">Valmet</div>
+      <div class="client-industry">Industrial Technology</div>
+    </div>
+
+    <!-- Client 5: Placeholder -->
+    <div class="client-card">
+      <div class="client-logo-wrap">
+        <svg width="120" height="60" viewBox="0 0 120 60">
+          <rect width="120" height="60" fill="#F47920" rx="6"/>
+          <text x="60" y="35" text-anchor="middle" fill="white" font-size="11" font-weight="bold">CLIENT LOGO</text>
+        </svg>
+      </div>
+      <div class="client-name">Strategic Partner</div>
+      <div class="client-industry">Automotive</div>
+    </div>
+
+    <!-- Client 6: Placeholder -->
+    <div class="client-card">
+      <div class="client-logo-wrap">
+        <svg width="120" height="60" viewBox="0 0 120 60">
+          <rect width="120" height="60" fill="#00AEEF" rx="6"/>
+          <text x="60" y="35" text-anchor="middle" fill="white" font-size="11" font-weight="bold">CLIENT LOGO</text>
+        </svg>
+      </div>
+      <div class="client-name">Industry Leader</div>
+      <div class="client-industry">FMCG</div>
+    </div>
+
+    <!-- Client 7: Placeholder -->
+    <div class="client-card">
+      <div class="client-logo-wrap">
+        <svg width="120" height="60" viewBox="0 0 120 60">
+          <rect width="120" height="60" fill="#6B7280" rx="6"/>
+          <text x="60" y="35" text-anchor="middle" fill="white" font-size="11" font-weight="bold">CLIENT LOGO</text>
+        </svg>
+      </div>
+      <div class="client-name">Global Enterprise</div>
+      <div class="client-industry">Technology</div>
+    </div>
+
+    <!-- Client 8: Raychem RPG -->
+    <div class="client-card">
+      <div class="client-logo-wrap">
+        <svg width="120" height="60" viewBox="0 0 120 60">
+          <rect width="120" height="60" fill="#E63946" rx="6"/>
+          <text x="60" y="28" text-anchor="middle" fill="white" font-size="10" font-weight="bold">RAYCHEM</text>
+          <text x="60" y="42" text-anchor="middle" fill="white" font-size="10" font-weight="bold">RPG</text>
+        </svg>
+      </div>
+      <div class="client-name">Raychem RPG</div>
+      <div class="client-industry">Electrical Solutions</div>
+    </div>
+
+    <!-- Client 9: Placeholder -->
+    <div class="client-card">
+      <div class="client-logo-wrap">
+        <svg width="120" height="60" viewBox="0 0 120 60">
+          <rect width="120" height="60" fill="#F47920" rx="6"/>
+          <text x="60" y="35" text-anchor="middle" fill="white" font-size="11" font-weight="bold">CLIENT LOGO</text>
+        </svg>
+      </div>
+      <div class="client-name">Premium Client</div>
+      <div class="client-industry">Pharmaceuticals</div>
+    </div>
+
+    <!-- Client 10: Ravin Group -->
+    <div class="client-card">
+      <div class="client-logo-wrap">
+        <svg width="120" height="60" viewBox="0 0 120 60">
+          <rect width="120" height="60" fill="#1F2937" rx="6"/>
+          <text x="60" y="35" text-anchor="middle" fill="white" font-size="13" font-weight="bold">RAVIN</text>
+        </svg>
+      </div>
+      <div class="client-name">Ravin Group</div>
+      <div class="client-industry">Diversified Industries</div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BADGES -->
+<section class="trust-section">
+  <div class="s-inner">
+    <div class="s-tag">Why They Choose Us</div>
+    <h2 class="s-title">The Fortune Difference</h2>
+    <p class="s-sub" style="margin-bottom:48px">Our clients stay with us because we consistently deliver on three core promises.</p>
+  </div>
+  <div class="trust-grid">
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      </div>
+      <div class="trust-title">Reliability First</div>
+      <div class="trust-desc">98.5% on-time delivery rate across 500+ active clients. We treat your deadlines as our own.</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <div class="trust-title">Real-Time Visibility</div>
+      <div class="trust-desc">GPS tracking on every vehicle. WhatsApp updates at every milestone. You're never in the dark.</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      </div>
+      <div class="trust-title">Certified Quality</div>
+      <div class="trust-desc">ISO 9001-2015 certified processes. Documented SOPs. Audited safety protocols. Quality you can verify.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENT STRIP -->
+<div class="clients-section">
+  <div class="clients-label">Trusted by India's Leading Companies</div>
+  <div class="clients-strip">
+    <span class="cl-name">Aberdare Technologies</span>
+    <span class="cl-name">Raychem RPG</span>
+    <span class="cl-name">Panchshil Realty</span>
+    <span class="cl-name">Valmet</span>
+    <span class="cl-name">Ravin Group</span>
+    <span class="cl-name">Enpro Industries</span>
+    <span class="cl-name">Chloride Metals</span>
+    <span class="cl-name">Maass Global</span>
+    <span class="cl-name">Deccan</span>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <div>
+      <div class="cta-label">Join Our Client Family</div>
+      <h2 class="cta-title">Ready to Experience Better Logistics?</h2>
+      <p class="cta-sub">Tell us about your freight requirements — origin, destination, cargo type, and frequency. We'll respond with a tailored solution and competitive quote within 4 business hours.</p>
+    </div>
+    <div class="cta-btns">
+      <a href="contact.html" class="btn-cta-white">Request a Quote</a>
+      <a href="https://wa.me/919970318707" class="btn-cta-wa" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Chat on WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="f-logo">
+        <img src="./fl_logo.jpeg" alt="Fortune Logistics">
+        <div class="f-logo-name">Fortune Logistics</div>
+      </div>
+      <p class="f-tagline">Better Logistics Solution for You. Pan-India road freight — FTL, PTL, ODC & Packaging, on time every time.</p>
+      <div class="f-contact">
+        <a href="tel:+919970318707">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .99h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          +91 9970 318 707
+        </a>
+        <a href="mailto:info@fortunelogistics.in">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          info@fortunelogistics.in
+        </a>
+        <a href="#">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Pune, Maharashtra, India
+        </a>
+      </div>
+    </div>
+    <div class="f-col">
+      <div class="f-col-title">Services</div>
+      <a href="services.html#ftl">Full Truck Load (FTL)</a>
+      <a href="services.html#ptl">Part Truck Load (PTL)</a>
+      <a href="services.html#odc">Over Dimensional Cargo</a>
+      <a href="services.html#packaging">Packaging Solutions</a>
+    </div>
+    <div class="f-col">
+      <div class="f-col-title">Company</div>
+      <a href="about.html">About Us</a>
+      <a href="fleet.html">Fleet & Capabilities</a>
+      <a href="network.html">Our Network</a>
+      <a href="why-fortune.html">Why Fortune</a>
+      <a href="clients.html">Our Clients</a>
+    </div>
+    <div class="f-col">
+      <div class="f-col-title">Industries</div>
+      <a href="industries-automotive.html">Automotive</a>
+      <a href="industries-fmcg.html">FMCG</a>
+      <a href="industries-pharma.html">Pharmaceuticals</a>
+      <a href="industries-industrial.html">Industrial</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Fortune Logistics. All rights reserved. &nbsp;|&nbsp; </span>
+    <span class="f-iso">ISO 9001-2015 Certified</span>
+  </div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/919970318707" class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+(function(){
+  var hamburger=document.getElementById('navHamburger');
+  var mobileMenu=document.getElementById('mobileMenu');
+  var mobileClose=document.getElementById('mobileClose');
+  function openMenu(){hamburger.classList.add('open');mobileMenu.classList.add('open');document.body.style.overflow='hidden';}
+  function closeMenu(){hamburger.classList.remove('open');mobileMenu.classList.remove('open');document.body.style.overflow='';}
+  if(hamburger)hamburger.addEventListener('click',function(e){e.stopPropagation();openMenu();});
+  if(mobileClose)mobileClose.addEventListener('click',function(e){e.stopPropagation();closeMenu();});
+  if(mobileMenu)mobileMenu.addEventListener('click',function(e){if(e.target===mobileMenu)closeMenu();});
+})();
+</script>
+
+</body>
+</html>
