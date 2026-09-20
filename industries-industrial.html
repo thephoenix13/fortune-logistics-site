@@ -1,0 +1,588 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fortune Logistics — Industrial & Project Cargo | Design A</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}img{max-width:100%;height:auto}
+html{scroll-behavior:smooth}
+html{overflow-x:hidden}body{overflow-x:hidden;font-family:'Inter',sans-serif;color:#111827;background:#fff;-webkit-font-smoothing:antialiased}
+
+/* NAV */
+nav{background:#fff;border-bottom:1px solid #F3F4F6;position:sticky;top:0;z-index:100;box-shadow:0 1px 8px rgba(0,0,0,.04)}
+.nav-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;padding:0 48px;height:72px;gap:40px}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;flex-shrink:0}
+.nav-logo img{height:46px;width:46px;object-fit:contain;border-radius:50%}
+.nav-logo-name{font-family:'DM Serif Display',serif;font-size:20px;color:#111827;line-height:1.1}
+.nav-logo-iso{font-size:9px;color:#00AEEF;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.nav-links{display:flex;align-items:center;gap:2px;flex:1}
+.nav-links a{color:#4B5563;text-decoration:none;font-size:13px;font-weight:500;padding:7px 13px;border-radius:5px;transition:color .2s,background .2s;white-space:nowrap}
+.nav-links a:hover{color:#111827;background:#F9FAFB}
+.nav-right{display:flex;align-items:center;gap:20px;flex-shrink:0}
+.nav-phone{font-size:13px;font-weight:600;color:#374151;text-decoration:none;display:flex;align-items:center;gap:7px}
+.nav-phone svg{color:#F47920}
+.nav-phone:hover{color:#F47920}
+.btn-nav{background:#F47920;color:#fff;font-size:13px;font-weight:700;padding:10px 24px;border-radius:6px;text-decoration:none;letter-spacing:.01em;transition:all .2s}
+.btn-nav:hover{background:#e06810;transform:translateY(-1px);box-shadow:0 4px 16px rgba(244,121,32,.3)}
+.nav-hamburger{display:none;flex-direction:column;justify-content:space-between;width:28px;height:20px;background:none;border:none;cursor:pointer;padding:0;flex-shrink:0;margin-left:8px}
+.nav-hamburger span{display:block;height:2px;background:#111827;border-radius:2px;transition:all .3s}
+.nav-hamburger.open span:nth-child(1){transform:translateY(9px) rotate(45deg)}
+.nav-hamburger.open span:nth-child(2){opacity:0}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-9px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.5)}
+.mobile-menu.open{display:block}
+.mobile-menu-drawer{position:absolute;top:0;right:0;bottom:0;width:min(320px,85vw);background:#fff;display:flex;flex-direction:column;box-shadow:-8px 0 40px rgba(0,0,0,.15);transform:translateX(100%);transition:transform .3s cubic-bezier(.4,0,.2,1)}
+.mobile-menu.open .mobile-menu-drawer{transform:translateX(0)}
+.mobile-drawer-head{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;border-bottom:1px solid #F3F4F6}
+.mobile-drawer-logo{font-family:'DM Serif Display',serif;font-size:17px;color:#111827}
+.mobile-drawer-close{background:none;border:none;cursor:pointer;color:#6B7280;padding:4px;line-height:1}
+.mobile-drawer-links{flex:1;overflow-y:auto;padding:12px 0}
+.mobile-drawer-links a{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;font-size:15px;font-weight:600;color:#374151;text-decoration:none;border-bottom:1px solid #F9FAFB;transition:background .15s,color .15s}
+.mobile-drawer-links a:hover{background:#FFF7F2;color:#F47920}
+.mobile-drawer-foot{padding:20px 24px;border-top:1px solid #F3F4F6;display:flex;flex-direction:column;gap:10px}
+.mobile-drawer-phone{display:flex;align-items:center;justify-content:center;gap:8px;font-size:14px;font-weight:700;color:#374151;text-decoration:none;padding:12px;border:1.5px solid #E5E7EB;border-radius:8px}
+.mobile-drawer-cta{background:#F47920;color:#fff;font-size:14px;font-weight:700;padding:13px;border-radius:8px;text-decoration:none;text-align:center;transition:background .15s}
+.mobile-drawer-cta:hover{background:#e0691a}
+
+/* SECTION SHARED */
+.section{padding:96px 48px}
+.s-inner{max-width:1280px;margin:0 auto}
+.s-tag{font-size:10px;font-weight:800;color:#F47920;letter-spacing:.2em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.s-tag::before{content:'';width:20px;height:2px;background:#F47920;flex-shrink:0}
+.s-title{font-family:'DM Serif Display',serif;font-size:42px;color:#111827;letter-spacing:-1.5px;line-height:1.1;margin-bottom:14px}
+.s-sub{font-size:15px;color:#6B7280;line-height:1.75;max-width:540px}
+
+/* BREADCRUMB */
+.breadcrumb{font-size:12px;color:#9CA3AF;margin-bottom:16px;display:flex;align-items:center;gap:6px}
+.breadcrumb a{color:#9CA3AF;text-decoration:none;transition:color .2s}
+.breadcrumb a:hover{color:#F47920}
+.breadcrumb span{color:#D1D5DB}
+
+/* PAGE HERO */
+.page-hero{display:flex;min-height:380px;overflow:hidden}
+.page-hero-left{flex:0 0 55%;display:flex;align-items:center;padding:64px 0 64px max(48px,calc((100vw - 1280px)/2 + 48px));background:#fff}
+.page-hero-left-inner{max-width:540px}
+.hero-eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.hero-eyebrow-line{width:32px;height:3px;background:#F47920;flex-shrink:0}
+.hero-eyebrow-text{font-size:10px;font-weight:800;color:#F47920;letter-spacing:.2em;text-transform:uppercase}
+h1{font-family:'DM Serif Display',serif;font-size:54px;line-height:1.05;color:#111827;letter-spacing:-2px;margin-bottom:20px}
+h1 em{font-style:normal;color:#00AEEF}
+.hero-para{font-size:15px;color:#6B7280;line-height:1.75;max-width:440px;margin-bottom:28px}
+.hero-pills{display:flex;gap:10px;flex-wrap:wrap}
+.hero-pill{display:inline-flex;align-items:center;gap:7px;background:#FFF7F2;border:1.5px solid #FDDCBC;border-radius:30px;padding:7px 16px;font-size:12px;font-weight:700;color:#F47920}
+.page-hero-right{flex:1;position:relative;overflow:hidden;clip-path:polygon(6% 0,100% 0,100% 100%,0 100%)}
+.page-hero-right img{width:100%;height:100%;object-fit:cover;object-position:center}
+
+/* OVERVIEW */
+.overview-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.overview-text p{font-size:15px;color:#4B5563;line-height:1.8;margin-bottom:16px}
+.overview-text p:last-child{margin-bottom:0}
+.overview-img-wrap{position:relative}
+.overview-img-wrap img{width:100%;border-radius:12px;display:block;box-shadow:0 8px 40px rgba(0,0,0,.1)}
+.overview-accent-card{position:absolute;bottom:-20px;left:-20px;background:#fff;border-radius:10px;padding:16px 20px;box-shadow:0 8px 32px rgba(0,0,0,.12);border-left:3px solid #F47920;font-size:13px;font-weight:700;color:#111827;max-width:240px}
+.overview-accent-card span{display:block;font-size:11px;font-weight:500;color:#6B7280;margin-top:4px}
+
+/* CHALLENGES */
+.challenges-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.challenge-card{background:#fff;border:1px solid #F3F4F6;border-radius:12px;padding:32px 28px;transition:all .3s}
+.challenge-card:hover{border-color:#F47920;box-shadow:0 8px 32px rgba(244,121,32,.08);transform:translateY(-3px)}
+.challenge-ic{width:48px;height:48px;border-radius:10px;background:#FFF7F2;border:1.5px solid #FDDCBC;display:flex;align-items:center;justify-content:center;color:#F47920;margin-bottom:18px}
+.challenge-title{font-size:16px;font-weight:800;color:#111827;margin-bottom:8px;letter-spacing:-.2px}
+.challenge-desc{font-size:13px;color:#6B7280;line-height:1.65}
+
+/* SERVICES USED */
+.svc-used-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.svc-used-card{border:1px solid #E5E7EB;border-radius:10px;padding:28px 24px;display:flex;align-items:flex-start;gap:16px;transition:all .3s}
+.svc-used-card:hover{border-color:#F47920;box-shadow:0 4px 20px rgba(244,121,32,.07)}
+.svc-used-card.primary{border-color:#F47920;background:#FFF7F2}
+.svc-used-ic{width:44px;height:44px;border-radius:8px;background:#FFF7F2;display:flex;align-items:center;justify-content:center;color:#F47920;flex-shrink:0}
+.svc-used-card.primary .svc-used-ic{background:#fff}
+.svc-used-name{font-size:15px;font-weight:800;color:#111827;margin-bottom:5px;letter-spacing:-.2px}
+.svc-used-desc{font-size:13px;color:#6B7280;line-height:1.6}
+.svc-used-badge{display:inline-block;font-size:10px;font-weight:700;background:#F47920;color:#fff;padding:2px 9px;border-radius:20px;margin-bottom:8px;letter-spacing:.06em;text-transform:uppercase}
+
+/* OPERATIONAL STANDARDS */
+.ops-section{background:#111827;padding:72px 48px}
+.ops-inner{max-width:1280px;margin:0 auto}
+.ops-tag{font-size:10px;font-weight:800;color:#F47920;letter-spacing:.2em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.ops-tag::before{content:'';width:20px;height:2px;background:#F47920}
+.ops-title{font-family:'DM Serif Display',serif;font-size:36px;color:#fff;letter-spacing:-1px;line-height:1.1;margin-bottom:40px}
+.ops-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.ops-item{background:rgba(255,255,255,.04);padding:28px 24px;border:1px solid rgba(255,255,255,.06);display:flex;align-items:flex-start;gap:14px;transition:background .2s}
+.ops-item:hover{background:rgba(255,255,255,.07)}
+.ops-ic{width:36px;height:36px;border-radius:7px;background:rgba(244,121,32,.15);border:1px solid rgba(244,121,32,.25);display:flex;align-items:center;justify-content:center;color:#F47920;flex-shrink:0}
+.ops-label{font-size:14px;font-weight:700;color:#fff;margin-bottom:4px}
+.ops-sub{font-size:12px;color:rgba(255,255,255,.35);line-height:1.5}
+
+/* STATS */
+.stats-band{background:#111827}
+.stats-band-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);padding:0 48px}
+.stat-col{padding:38px 24px;border-right:1px solid rgba(255,255,255,.06);text-align:center}
+.stat-col:last-child{border-right:none}
+.stat-n{font-family:'DM Serif Display',serif;font-size:48px;color:#F47920;line-height:1;letter-spacing:-1.5px}
+.stat-lbl{font-size:11px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.12em;margin:7px 0 5px}
+.stat-qual{font-size:11px;color:rgba(255,255,255,.3);line-height:1.5}
+
+/* CTA */
+.cta-section{background:#F47920;padding:80px 48px}
+.cta-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr auto;align-items:center;gap:60px}
+.cta-label{font-size:10px;font-weight:800;color:rgba(255,255,255,.6);letter-spacing:.2em;text-transform:uppercase;margin-bottom:14px}
+.cta-title{font-family:'DM Serif Display',serif;font-size:44px;color:#fff;letter-spacing:-1.5px;line-height:1.08;margin-bottom:12px}
+.cta-sub{font-size:15px;color:rgba(255,255,255,.7);line-height:1.7;max-width:520px}
+.cta-btns{display:flex;flex-direction:column;gap:12px;flex-shrink:0;min-width:200px}
+.btn-cta-white{background:#fff;color:#F47920;font-size:14px;font-weight:700;padding:14px 28px;border-radius:6px;text-decoration:none;text-align:center;transition:all .2s}
+.btn-cta-white:hover{background:#FFF7F2;transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.12)}
+.btn-cta-wa{background:rgba(255,255,255,.15);color:#fff;border:1.5px solid rgba(255,255,255,.3);font-size:14px;font-weight:700;padding:14px 28px;border-radius:6px;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:9px;transition:all .2s}
+.btn-cta-wa:hover{background:rgba(255,255,255,.25);border-color:rgba(255,255,255,.5)}
+
+/* FOOTER */
+footer{background:#0F172A;padding:64px 48px 24px}
+.footer-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:2.2fr 1fr 1fr 1.4fr;gap:52px;margin-bottom:48px}
+.f-logo{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.f-logo img{height:38px;width:38px;object-fit:contain;border-radius:50%}
+.f-logo-name{font-family:'DM Serif Display',serif;font-size:18px;color:#fff}
+.f-tagline{font-size:13px;color:rgba(255,255,255,.3);line-height:1.72;margin-bottom:20px;max-width:260px}
+.f-contact a{display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,.38);text-decoration:none;margin-bottom:9px;transition:color .2s}
+.f-contact a:hover{color:#F47920}
+.f-contact svg{color:#F47920;flex-shrink:0}
+.f-col-title{font-size:9px;font-weight:800;color:#F47920;letter-spacing:.16em;text-transform:uppercase;margin-bottom:18px}
+.f-col a{display:block;font-size:13px;color:rgba(255,255,255,.35);text-decoration:none;margin-bottom:10px;transition:color .2s}
+.f-col a:hover{color:#fff}
+.footer-bottom{max-width:1280px;margin:0 auto;border-top:1px solid rgba(255,255,255,.06);padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:11px;color:rgba(255,255,255,.18);flex-wrap:wrap;gap:10px}
+.footer-bottom a{color:rgba(255,255,255,.18);text-decoration:none}
+.f-iso{font-size:10px;font-weight:700;color:#F47920;background:rgba(244,121,32,.1);border:1px solid rgba(244,121,32,.2);padding:3px 10px;border-radius:3px;letter-spacing:.08em}
+
+/* WA FLOAT */
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:999;background:#25D366;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.45);text-decoration:none;transition:transform .3s,box-shadow .3s}
+.wa-float:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,.55)}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .nav-inner{padding:0 24px}
+  .page-hero{flex-direction:column}
+  .page-hero-left{flex:none;padding:52px 24px}
+  .page-hero-right{height:300px;flex:none;clip-path:none}
+  h1{font-size:40px}
+  .overview-grid{grid-template-columns:1fr;gap:40px}
+  .challenges-grid{grid-template-columns:1fr 1fr}
+  .svc-used-grid{grid-template-columns:1fr}
+  .ops-grid{grid-template-columns:1fr 1fr}
+  .cta-inner{grid-template-columns:1fr;gap:28px}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
+  .stats-band-inner{padding:0 24px}
+  .section{padding:72px 24px}
+  .ops-section{padding:56px 24px}
+  .cta-section{padding:64px 24px}
+}
+@media(max-width:640px){
+  .nav-links,.nav-phone{display:none}.btn-nav{display:none}
+  .nav-hamburger{display:flex}
+  .nav-inner{padding:0 16px;height:60px}
+  h1{font-size:32px;letter-spacing:-1px}
+  .page-hero-left{padding:36px 16px}
+  .page-hero-right{height:220px}
+  .challenges-grid{grid-template-columns:1fr}
+  .ops-grid{grid-template-columns:1fr}
+  .section{padding:52px 16px}
+  .ops-section{padding:44px 16px}
+  .stats-band-inner{grid-template-columns:1fr 1fr;padding:0}
+  .stat-col{padding:22px 12px}
+  .stat-n{font-size:32px}
+  .cta-section{padding:48px 16px}
+  .cta-inner{gap:24px}
+  .cta-title{font-size:30px}
+  .cta-btns{flex-direction:row;flex-wrap:wrap}
+  .cta-btns a{flex:1;min-width:140px;text-align:center;justify-content:center}
+  footer{padding:40px 16px 20px}
+  .footer-grid{grid-template-columns:1fr;gap:28px;margin-bottom:32px}
+  .overview-accent-card{position:static;margin-top:16px;border-radius:8px}
+
+  .overview-grid{grid-template-columns:1fr}  .svc-used-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<a href="https://wa.me/919970318707" class="wa-float" target="_blank" aria-label="WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="fl_logo.jpeg" alt="Fortune Logistics">
+      <div>
+        <div class="nav-logo-name">Fortune Logistics</div>
+        <div class="nav-logo-iso">ISO 9001-2015</div>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="services.html">Services</a>
+      <a href="network.html">Network</a>
+      <a href="industries.html">Industries</a>
+      <a href="fleet.html">Fleet</a>
+      <a href="why-fortune.html">Why Fortune</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="tel:+919970318707" class="nav-phone">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .99h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        +91 9970 318 707
+      </a>
+      <a href="contact.html" class="btn-nav">Get a Quote</a>
+    </div>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-drawer">
+    <div class="mobile-drawer-head">
+      <span class="mobile-drawer-logo">Fortune Logistics</span>
+      <button class="mobile-drawer-close" id="mobileClose" aria-label="Close menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="mobile-drawer-links">
+      <a href="services.html">Services <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></a>
+      <a href="fleet.html">Fleet <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></a>
+      <a href="network.html">Network <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></a>
+      <a href="industries.html">Industries <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></a>
+      <a href="why-fortune.html">Why Fortune <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></a>
+      <a href="about.html">About <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></a>
+    </div>
+    <div class="mobile-drawer-foot">
+      <a href="tel:+919970318707" class="mobile-drawer-phone">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.5 19.79 19.79 0 01.22 4.37 2 2 0 012.18 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 9.1a16 16 0 006 6l.56-.56a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        +91 9970 318 707
+      </a>
+      <a href="#" class="mobile-drawer-cta">Get a Quote</a>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-left">
+    <div class="page-hero-left-inner">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a><span>›</span>
+        <a href="industries.html">Industries</a><span>›</span>
+        <span style="color:#374151">Industrial & Project Cargo</span>
+      </div>
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-line"></div>
+        <div class="hero-eyebrow-text">Industrial & Project Cargo</div>
+      </div>
+      <h1>When the Load Is <em>Larger</em> Than Standard.</h1>
+      <p class="hero-para">Heavy machinery, ODC equipment, and infrastructure freight — Fortune Logistics manages the entire move from route survey and permit acquisition to specialized trailer deployment and police escort coordination.</p>
+      <div class="hero-pills">
+        <span class="hero-pill">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          ODC Specialists
+        </span>
+        <span class="hero-pill">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Flatbed · Lowbed · Extendable
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="page-hero-right">
+    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=900&q=80" alt="Industrial freight logistics">
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section class="section" style="background:#fff">
+  <div class="s-inner">
+    <div class="overview-grid">
+      <div class="overview-text">
+        <div class="s-tag">Who We Serve</div>
+        <h2 class="s-title">Industrial Freight Is Not Standard Logistics.</h2>
+        <p>Over-dimensional cargo doesn't behave like standard freight. A flatbed carrying a 40-tonne transformer or a lowbed moving a mining excavator needs a completely different approach — from the moment the load is measured to the final handoff on site.</p>
+        <p>Fortune Logistics has built a specialist industrial freight capability: a fleet of flatbed, lowbed, and extendable trailers; in-house route survey competency; permit acquisition across state RTOs; and a dedicated project coordinator for every industrial move. We've handled infrastructure, energy, manufacturing, and plant-relocation freight across Maharashtra and beyond.</p>
+      </div>
+      <div class="overview-img-wrap">
+        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=700&q=80" alt="Industrial cargo loading">
+        <div class="overview-accent-card">
+          ODC Specialists
+          <span>Flatbed · Lowbed · Extendable Trailers</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHALLENGES -->
+<section class="section" style="background:#F8FAFC">
+  <div class="s-inner">
+    <div class="s-tag">Challenges We Solve</div>
+    <h2 class="s-title" style="margin-bottom:40px">What Makes Industrial Freight Hard — And How We Handle It.</h2>
+    <div class="challenges-grid">
+      <div class="challenge-card">
+        <div class="challenge-ic">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div class="challenge-title">Route Complexity</div>
+        <div class="challenge-desc">ODC loads can't just take the highway. We survey the route, identify low bridges, narrow roads, and weight restrictions — and plan the optimal path before the truck moves.</div>
+      </div>
+      <div class="challenge-card">
+        <div class="challenge-ic">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="challenge-title">Permits & Escorts</div>
+        <div class="challenge-desc">State permits, police NOC, district collector clearances, escort vehicles — we manage every approval and coordination so your project timeline isn't held up by paperwork.</div>
+      </div>
+      <div class="challenge-card">
+        <div class="challenge-ic">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <div class="challenge-title">Specialized Equipment</div>
+        <div class="challenge-desc">Not every ODC load is the same. We deploy the right trailer — flatbed for wide loads, lowbed for tall machinery, extendable for ultra-long cargo — matched precisely to your requirement.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES USED -->
+<section class="section" style="background:#fff">
+  <div class="s-inner">
+    <div class="s-tag">Services We Deploy</div>
+    <h2 class="s-title" style="margin-bottom:36px">The Right Combination for Industrial Freight.</h2>
+    <div class="svc-used-grid">
+      <div class="svc-used-card primary">
+        <div class="svc-used-ic">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M2 20h20M8 20V10M8 10L20 4M20 4v8M14 20v-5a2 2 0 00-2-2H10a2 2 0 00-2 2"/></svg>
+        </div>
+        <div>
+          <div class="svc-used-badge">Primary</div>
+          <div class="svc-used-name">ODC / Project Cargo</div>
+          <div class="svc-used-desc">Specialized trailers, route surveys, permits, and police escort — complete management of over-dimensional and project freight.</div>
+        </div>
+      </div>
+      <div class="svc-used-card">
+        <div class="svc-used-ic">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <div>
+          <div class="svc-used-name">Full Truck Load (FTL)</div>
+          <div class="svc-used-desc">For standard heavy freight alongside ODC moves — dedicated vehicles for plant equipment, spares, and support cargo on the same project.</div>
+        </div>
+      </div>
+      <div class="svc-used-card">
+        <div class="svc-used-ic">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+        </div>
+        <div>
+          <div class="svc-used-name">Packaging Solutions</div>
+          <div class="svc-used-desc">Custom wooden crating and securing for precision machinery — ensuring heavy equipment survives the journey intact.</div>
+        </div>
+      </div>
+      <div class="svc-used-card">
+        <div class="svc-used-ic">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <div>
+          <div class="svc-used-name">FTL + ODC Combo</div>
+          <div class="svc-used-desc">For complex plant relocations requiring both standard FTL trucks and ODC trailers operating in coordination on the same move.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPERATIONAL STANDARDS -->
+<div class="ops-section">
+  <div class="ops-inner">
+    <div class="ops-tag">Operational Standards</div>
+    <h2 class="ops-title">How We Handle Every Industrial Move.</h2>
+    <div class="ops-grid">
+      <div class="ops-item">
+        <div class="ops-ic">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div>
+          <div class="ops-label">Route Survey</div>
+          <div class="ops-sub">Pre-move physical survey of the full route — bridges, underpasses, road width, turning radii</div>
+        </div>
+      </div>
+      <div class="ops-item">
+        <div class="ops-ic">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        </div>
+        <div>
+          <div class="ops-label">Permit Management</div>
+          <div class="ops-sub">State RTO, district collector, NHAI, and municipal clearances handled end-to-end</div>
+        </div>
+      </div>
+      <div class="ops-item">
+        <div class="ops-ic">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div>
+          <div class="ops-label">Police Escort</div>
+          <div class="ops-sub">Escort vehicles and police NOC arranged for all ODC moves requiring convoy support</div>
+        </div>
+      </div>
+      <div class="ops-item">
+        <div class="ops-ic">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <div>
+          <div class="ops-label">Specialized Trailers</div>
+          <div class="ops-sub">Flatbed, lowbed, and extendable trailers — deployed based on cargo dimensions and weight</div>
+        </div>
+      </div>
+      <div class="ops-item">
+        <div class="ops-ic">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div>
+          <div class="ops-label">GPS Tracking</div>
+          <div class="ops-sub">Live GPS on every vehicle throughout the move — client visibility at every point of the journey</div>
+        </div>
+      </div>
+      <div class="ops-item">
+        <div class="ops-ic">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <div>
+          <div class="ops-label">Dedicated PoC</div>
+          <div class="ops-sub">One named project coordinator from enquiry to delivery — single point of contact for the entire move</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STATS BAND -->
+<div class="stats-band">
+  <div class="stats-band-inner">
+    <div class="stat-col">
+      <div class="stat-n">50+</div>
+      <div class="stat-lbl">Cities Served</div>
+      <div class="stat-qual">Pan-India · All 28 states</div>
+    </div>
+    <div class="stat-col">
+      <div class="stat-n">120+</div>
+      <div class="stat-lbl">Fleet Vehicles</div>
+      <div class="stat-qual">Owned &amp; operated — not brokered</div>
+    </div>
+    <div class="stat-col">
+      <div class="stat-n">98%</div>
+      <div class="stat-lbl">On-Time Delivery</div>
+      <div class="stat-qual">Measured monthly across all lanes</div>
+    </div>
+    <div class="stat-col">
+      <div class="stat-n">500+</div>
+      <div class="stat-lbl">Active Clients</div>
+      <div class="stat-qual">Automotive · FMCG · Pharma · Industrial</div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <div>
+      <div class="cta-label">Get Started Today</div>
+      <h2 class="cta-title">Planning an Industrial or ODC Move? Let's Talk.</h2>
+      <p class="cta-sub">Share your cargo dimensions, origin, destination, and timeline — we'll respond with a detailed plan and quote in under 4 business hours.</p>
+    </div>
+    <div class="cta-btns">
+      <a href="contact.html" class="btn-cta-white">Request a Quote</a>
+      <a href="https://wa.me/919970318707" class="btn-cta-wa" target="_blank">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Chat on WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="f-logo">
+        <img src="./fl_logo.jpeg" alt="Fortune Logistics">
+        <div class="f-logo-name">Fortune Logistics</div>
+      </div>
+      <p class="f-tagline">Better Logistics Solution for You. Pan-India road freight — FTL, PTL, ODC &amp; Packaging, on time every time.</p>
+      <div class="f-contact">
+        <a href="tel:+919970318707">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .99h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          +91 9970 318 707
+        </a>
+        <a href="mailto:info@fortunelogistics.in">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          info@fortunelogistics.in
+        </a>
+        <a href="#">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Pune, Maharashtra, India
+        </a>
+      </div>
+    </div>
+    <div class="f-col">
+      <div class="f-col-title">Services</div>
+      
+      
+      
+      
+    </div>
+    <div class="f-col">
+      <div class="f-col-title">Company</div>
+      <a href="about.html">About Us</a>
+      <a href="fleet.html">Fleet &amp; Capabilities</a>
+      <a href="network.html">Our Network</a>
+      <a href="why-fortune.html">Why Fortune</a>
+    </div>
+    <div class="f-col">
+      <div class="f-col-title">Industries</div>
+      <a href="industries-automotive.html">Automotive</a>
+      <a href="industries-fmcg.html">FMCG</a>
+      <a href="industries-pharma.html">Pharmaceuticals</a>
+      <a href="industries-industrial.html">Industrial</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Fortune Logistics. All rights reserved. &nbsp;|&nbsp; </span>
+    <span class="f-iso">ISO 9001-2015 Certified</span>
+  </div>
+</footer>
+
+<!--<div id="demo-toast" style="display:none;position:fixed;bottom:36px;left:50%;transform:translateX(-50%);background:#111827;color:#fff;font-family:'Inter',sans-serif;font-size:13px;font-weight:500;padding:12px 24px;border-radius:8px;box-shadow:0 8px 32px rgba(0,0,0,.28);z-index:99999;pointer-events:none;white-space:nowrap;border-left:3px solid #F47920">-->
+<!--  This is just a demo for Fortune Logistics. Links do not work.-->
+<!--</div>-->
+<!--<script>-->
+<!--(function(){-->
+<!--  var toast=document.getElementById('demo-toast'),timer;-->
+<!--  function showToast(){clearTimeout(timer);toast.style.display='block';timer=setTimeout(function(){toast.style.display='none';},2800);}-->
+<!--  document.addEventListener('click',function(e){-->
+<!--    var a=e.target.closest('a');-->
+<!--    if(a){var h=a.getAttribute('href')||'';if(h===''||h==='#'||h.startsWith('#')||h.startsWith('http')||h.startsWith('tel:')||h.startsWith('mailto:')||h.indexOf('.html')!==-1){return;}e.preventDefault();showToast();}-->
+<!--  });-->
+<!--  var hamburger=document.getElementById('navHamburger');-->
+<!--  var mobileMenu=document.getElementById('mobileMenu');-->
+<!--  var mobileClose=document.getElementById('mobileClose');-->
+<!--  function openMenu(){hamburger.classList.add('open');mobileMenu.classList.add('open');document.body.style.overflow='hidden';}-->
+<!--  function closeMenu(){hamburger.classList.remove('open');mobileMenu.classList.remove('open');document.body.style.overflow='';}-->
+<!--  if(hamburger)hamburger.addEventListener('click',function(e){e.stopPropagation();openMenu();});-->
+<!--  if(mobileClose)mobileClose.addEventListener('click',function(e){e.stopPropagation();closeMenu();});-->
+<!--  if(mobileMenu)mobileMenu.addEventListener('click',function(e){if(e.target===mobileMenu)closeMenu();});-->
+<!--})();-->
+<!--</script>-->
+
+</body>
+</html>
+
+
+
+
+
+

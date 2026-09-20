@@ -1,0 +1,534 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fortune Logistics — Contact & Quote | Design A</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}img{max-width:100%;height:auto}
+html{scroll-behavior:smooth}
+html{overflow-x:hidden}body{overflow-x:hidden;font-family:'Inter',sans-serif;color:#111827;background:#fff;-webkit-font-smoothing:antialiased}
+
+/* NAV */
+nav{background:#fff;border-bottom:1px solid #E5E7EB;position:sticky;top:0;z-index:100}
+.nav-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;padding:0 40px;height:68px;gap:36px}
+.nav-logo{display:flex;align-items:center;gap:11px;text-decoration:none;flex-shrink:0}
+.nav-logo img{height:40px;width:40px;object-fit:contain;border-radius:50%}
+.nav-logo-name{font-family:'DM Serif Display',serif;font-size:18px;color:#111827;line-height:1.1}
+.nav-logo-iso{font-size:9px;color:#F47920;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.nav-links{display:flex;align-items:center;gap:2px;flex:1}
+.nav-links a{color:#4B5563;text-decoration:none;font-size:13px;font-weight:500;padding:7px 13px;border-radius:5px;transition:color .2s,background .2s;white-space:nowrap}
+.nav-links a:hover{color:#111827;background:#FFF7F2}
+.nav-right{display:flex;align-items:center;gap:16px;flex-shrink:0}
+.nav-phone{font-size:13px;font-weight:600;color:#374151;text-decoration:none;display:flex;align-items:center;gap:6px}
+.nav-phone svg{color:#F47920}
+.btn-nav{background:#F47920;color:#fff;font-size:13px;font-weight:700;padding:9px 22px;border-radius:6px;text-decoration:none;letter-spacing:.01em;transition:all .2s}
+.btn-nav:hover{background:#e0691a;transform:translateY(-1px)}
+
+/* HAMBURGER + MOBILE DRAWER */
+.nav-hamburger{display:none;flex-direction:column;justify-content:space-between;width:28px;height:20px;background:none;border:none;cursor:pointer;padding:0;flex-shrink:0;margin-left:8px}
+.nav-hamburger span{display:block;height:2px;background:#111827;border-radius:2px;transition:all .3s}
+.nav-hamburger.open span:nth-child(1){transform:translateY(9px) rotate(45deg)}
+.nav-hamburger.open span:nth-child(2){opacity:0}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-9px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;inset:0;top:0;z-index:200;background:rgba(0,0,0,.5)}
+.mobile-menu.open{display:block}
+.mobile-menu-drawer{position:absolute;top:0;right:0;bottom:0;width:min(320px,85vw);background:#fff;padding:0;display:flex;flex-direction:column;box-shadow:-8px 0 40px rgba(0,0,0,.15);transform:translateX(100%);transition:transform .3s cubic-bezier(.4,0,.2,1)}
+.mobile-menu.open .mobile-menu-drawer{transform:translateX(0)}
+.mobile-drawer-head{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;border-bottom:1px solid #F3F4F6}
+.mobile-drawer-logo{font-family:'DM Serif Display',serif;font-size:17px;color:#111827}
+.mobile-drawer-close{background:none;border:none;cursor:pointer;color:#6B7280;padding:4px;line-height:1}
+.mobile-drawer-links{flex:1;overflow-y:auto;padding:12px 0}
+.mobile-drawer-links a{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;font-size:15px;font-weight:600;color:#374151;text-decoration:none;border-bottom:1px solid #F9FAFB;transition:background .15s,color .15s}
+.mobile-drawer-links a:hover{background:#FFF7F2;color:#F47920}
+.mobile-drawer-foot{padding:20px 24px;border-top:1px solid #F3F4F6;display:flex;flex-direction:column;gap:10px}
+.mobile-drawer-phone{display:flex;align-items:center;justify-content:center;gap:8px;font-size:14px;font-weight:700;color:#374151;text-decoration:none;padding:12px;border:1.5px solid #E5E7EB;border-radius:8px}
+.mobile-drawer-cta{background:#F47920;color:#fff;font-size:14px;font-weight:700;padding:13px;border-radius:8px;text-decoration:none;text-align:center;transition:background .15s}
+.mobile-drawer-cta:hover{background:#e0691a}
+
+/* PAGE HERO — split layout */
+.page-hero{display:grid;grid-template-columns:1fr 1fr;min-height:320px}
+.hero-left{background:#fff;display:flex;align-items:center;padding:72px 56px 72px 40px;max-width:640px;margin-left:auto;width:100%}
+.hero-left-inner{max-width:480px}
+.breadcrumb{font-size:11px;color:#9CA3AF;margin-bottom:18px;display:flex;align-items:center;gap:6px}
+.breadcrumb span{color:#D1D5DB}
+.hero-kicker{font-size:10px;font-weight:800;color:#F47920;letter-spacing:.2em;text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.hero-kicker::before{content:'';width:24px;height:2px;background:#F47920;flex-shrink:0}
+.hero-left h1{font-family:'DM Serif Display',serif;font-size:48px;line-height:1.05;color:#111827;letter-spacing:-1.5px;margin-bottom:16px}
+.hero-left h1 em{font-style:normal;color:#F47920}
+.hero-left p{font-size:15px;color:#6B7280;line-height:1.72;margin-bottom:28px}
+.hero-trust-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.trust-chip{display:inline-flex;align-items:center;gap:6px;background:#FFF7F2;border:1px solid #FDE8D4;border-radius:20px;padding:5px 12px;font-size:11px;font-weight:700;color:#C2500A}
+.trust-chip svg{color:#F47920;flex-shrink:0}
+.hero-right{position:relative;overflow:hidden;min-height:320px}
+.hero-right-img{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=900&q=80');background-size:cover;background-position:center;clip-path:polygon(6% 0,100% 0,100% 100%,0 100%)}
+
+/* STATS BAND */
+.stats-band{background:#111827;padding:0}
+.stats-band-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)}
+.stat-item{padding:32px 20px;border-right:1px solid rgba(255,255,255,.07);text-align:center}
+.stat-item:last-child{border-right:none}
+.stat-n{font-family:'DM Serif Display',serif;font-size:40px;color:#fff;line-height:1;letter-spacing:-1px}
+.stat-n span{color:#F47920}
+.stat-lbl{font-size:11px;font-weight:700;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.1em;margin:6px 0 3px}
+.stat-qual{font-size:11px;color:rgba(255,255,255,.25);line-height:1.5}
+
+/* CONTACT MAIN */
+.contact-section{padding:80px 40px;background:#fff}
+.contact-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 400px;gap:64px;align-items:start}
+
+/* FORM */
+.form-heading{font-family:'DM Serif Display',serif;font-size:32px;color:#111827;letter-spacing:-1px;margin-bottom:8px}
+.form-sub{font-size:14px;color:#6B7280;margin-bottom:36px;line-height:1.6}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.form-group label{font-size:12px;font-weight:700;color:#374151;letter-spacing:.04em;text-transform:uppercase}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:11px 14px;border:1.5px solid #E5E7EB;border-radius:6px;font-size:14px;font-family:'Inter',sans-serif;color:#111827;background:#fff;transition:border-color .2s,box-shadow .2s;outline:none}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:#F47920;box-shadow:0 0 0 3px rgba(244,121,32,.08)}
+.form-group textarea{resize:vertical;min-height:100px;line-height:1.6}
+.form-group select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B7280' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+.btn-submit{width:100%;background:#F47920;color:#fff;font-size:14px;font-weight:700;padding:14px 28px;border-radius:6px;border:none;cursor:pointer;letter-spacing:.02em;transition:all .2s;font-family:'Inter',sans-serif;margin-top:8px}
+.btn-submit:hover{background:#e0691a;transform:translateY(-1px);box-shadow:0 8px 24px rgba(244,121,32,.3)}
+.form-disclaimer{font-size:11px;color:#9CA3AF;line-height:1.6;margin-top:14px;font-style:italic}
+
+/* CONTACT INFO CARD */
+.contact-info-card{background:#FFF7F2;border:1px solid #FDE8D4;border-radius:12px;padding:36px 32px;position:sticky;top:88px}
+.info-card-heading{font-size:13px;font-weight:700;color:#C2500A;letter-spacing:.1em;text-transform:uppercase;margin-bottom:24px}
+.info-item{display:flex;align-items:flex-start;gap:12px;margin-bottom:20px}
+.info-item-icon{width:36px;height:36px;border-radius:8px;background:#fff;display:flex;align-items:center;justify-content:center;color:#F47920;flex-shrink:0;border:1px solid #FDE8D4}
+.info-item-label{font-size:10px;font-weight:700;color:#C2500A;text-transform:uppercase;letter-spacing:.08em;margin-bottom:3px}
+.info-item-value{font-size:14px;font-weight:600;color:#111827}
+.info-divider{height:1px;background:#FDE8D4;margin:24px 0}
+.btn-wa-card{display:flex;align-items:center;justify-content:center;gap:9px;background:#25D366;color:#fff;font-size:14px;font-weight:700;padding:13px 20px;border-radius:8px;text-decoration:none;transition:all .2s;margin-bottom:16px}
+.btn-wa-card:hover{background:#1ead57;transform:translateY(-1px)}
+.info-hours{font-size:12px;color:#6B7280;line-height:1.7;margin-bottom:16px}
+.response-pill{display:inline-flex;align-items:center;gap:6px;background:#FFF7F2;border:1px solid #FDE8D4;border-radius:20px;padding:5px 12px;font-size:11px;font-weight:700;color:#C2500A}
+
+/* OFFICE SECTION */
+.office-section{background:#F8FAFC;padding:64px 40px;border-top:1px solid #E5E7EB}
+.office-inner{max-width:1280px;margin:0 auto}
+.s-tag{font-size:10px;font-weight:800;color:#F47920;letter-spacing:.18em;text-transform:uppercase;margin-bottom:10px}
+.s-title{font-family:'DM Serif Display',serif;font-size:36px;color:#111827;letter-spacing:-1px;line-height:1.1;margin-bottom:8px}
+.office-list{border-top:1px solid #E5E7EB;margin-top:32px}
+.office-row{display:flex;align-items:center;gap:24px;border-bottom:1px solid #E5E7EB;padding:24px 0;transition:background .2s}
+.office-num{font-size:11px;font-weight:800;color:#D1D5DB;width:48px;flex-shrink:0}
+.office-icon{width:44px;height:44px;border-radius:8px;background:#FFF7F2;display:flex;align-items:center;justify-content:center;color:#F47920;flex-shrink:0}
+.office-title{font-family:'DM Serif Display',serif;font-size:22px;color:#111827;flex:1}
+.office-desc{font-size:13px;color:#6B7280;line-height:1.6;flex:1.5}
+.office-tag{font-size:10px;font-weight:700;background:#FFF7F2;color:#F47920;border:1px solid #FDE8D4;padding:3px 10px;border-radius:20px;flex-shrink:0}
+
+/* FOOTER */
+footer{background:#111827;padding:64px 40px 24px}
+.footer-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:52px;margin-bottom:48px}
+.f-logo{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.f-logo img{height:36px;width:36px;object-fit:contain;border-radius:50%}
+.f-logo-name{font-family:'DM Serif Display',serif;font-size:17px;color:#fff}
+.f-tagline{font-size:13px;color:rgba(255,255,255,.3);line-height:1.7;margin-bottom:20px;max-width:250px}
+.f-contact a{display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,.35);text-decoration:none;margin-bottom:8px;transition:color .2s}
+.f-contact a:hover{color:#F47920}
+.f-contact svg{color:#F47920;flex-shrink:0}
+.f-col-title{font-size:9px;font-weight:800;color:#374151;letter-spacing:.16em;text-transform:uppercase;margin-bottom:18px}
+.f-col a{display:block;font-size:13px;color:rgba(255,255,255,.35);text-decoration:none;margin-bottom:10px;transition:color .2s}
+.f-col a:hover{color:#fff}
+.footer-bottom{max-width:1280px;margin:0 auto;border-top:1px solid rgba(255,255,255,.06);padding-top:22px;display:flex;justify-content:space-between;align-items:center;font-size:11px;color:rgba(255,255,255,.18);flex-wrap:wrap;gap:10px}
+.footer-bottom a{color:rgba(255,255,255,.18);text-decoration:none}
+.f-iso{font-size:10px;font-weight:700;color:#F47920;background:rgba(244,121,32,.08);border:1px solid rgba(244,121,32,.2);padding:3px 10px;border-radius:3px;letter-spacing:.08em}
+
+/* WA FLOAT */
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:999;background:#25D366;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.45);text-decoration:none;transition:transform .3s,box-shadow .3s}
+.wa-float:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,.55)}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .page-hero{grid-template-columns:1fr}
+  .hero-right{display:none}
+  .hero-left{max-width:100%;padding:56px 40px}
+  .contact-inner{grid-template-columns:1fr;gap:48px}
+  .contact-info-card{position:static}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
+  .nav-inner{padding:0 24px}
+}
+@media(max-width:640px){
+  .nav-links,.nav-phone{display:none}.btn-nav{display:none}
+  .nav-hamburger{display:flex}
+  .nav-inner{padding:0 16px}
+  .hero-left{padding:48px 16px}
+  .hero-left h1{font-size:32px;letter-spacing:-1px}
+  .contact-section{padding:56px 16px}
+  .office-section{padding:48px 16px}
+  .form-row{grid-template-columns:1fr}
+  .stats-band-inner{grid-template-columns:1fr 1fr}
+  .stat-item{padding:20px 12px}
+  .stat-n{font-size:32px}
+  .footer-grid{grid-template-columns:1fr;gap:28px}
+  footer{padding:40px 16px 20px}
+  .office-row{flex-wrap:wrap;gap:12px}
+  .office-title{font-size:18px;flex:none;width:100%}
+  .office-desc{display:none}
+
+  .contact-inner{grid-template-columns:1fr}  .page-hero{grid-template-columns:1fr;flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<a href="https://wa.me/919970318707" class="wa-float" target="_blank" aria-label="WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="fl_logo.jpeg" alt="Fortune Logistics">
+      <div>
+        <div class="nav-logo-name">Fortune Logistics</div>
+        <div class="nav-logo-iso">ISO 9001-2015</div>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="services.html">Services</a>
+      <a href="network.html">Network</a>
+      <a href="industries.html">Industries</a>
+      <a href="fleet.html">Fleet</a>
+      <a href="why-fortune.html">Why Fortune</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="tel:+919970318707" class="nav-phone">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .99h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        +91 9970 318 707
+      </a>
+      <a href="contact.html" class="btn-nav">Get a Quote</a>
+    </div>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE DRAWER -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-drawer">
+    <div class="mobile-drawer-head">
+      <span class="mobile-drawer-logo">Fortune Logistics</span>
+      <button class="mobile-drawer-close" id="mobileClose" aria-label="Close menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="mobile-drawer-links">
+      <a href="services.html">Services <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></a>
+      <a href="fleet.html">Fleet <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></a>
+      <a href="network.html">Network <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></a>
+      <a href="industries.html">Industries <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></a>
+      <a href="why-fortune.html">Why Fortune <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></a>
+      <a href="about.html">About <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></a>
+    </div>
+    <div class="mobile-drawer-foot">
+      <a href="tel:+919970318707" class="mobile-drawer-phone">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.5 19.79 19.79 0 01.22 4.37 2 2 0 012.18 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 9.1a16 16 0 006 6l.56-.56a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        +91 9970 318 707
+      </a>
+      <a href="#" class="mobile-drawer-cta">Get a Quote</a>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="hero-left">
+    <div class="hero-left-inner">
+      <div class="breadcrumb">Home <span>›</span> Contact</div>
+      <div class="hero-kicker">Get in Touch</div>
+      <h1>Request a Quote<br>or <em>Get in Touch.</em></h1>
+      <p>We respond in under 4 business hours. Tell us your freight needs and our team will get back with a detailed quote — no commitment required.</p>
+      <div class="hero-trust-row">
+        <span class="trust-chip"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>&lt; 4 Hr Response</span>
+        <span class="trust-chip"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Pan-India Coverage</span>
+        <span class="trust-chip"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>ISO 9001-2015</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-right-img"></div>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<div class="stats-band">
+  <div class="stats-band-inner">
+    <div class="stat-item">
+      <div class="stat-n">50<span>+</span></div>
+      <div class="stat-lbl">Cities Served</div>
+      <div class="stat-qual">Across all 28 states</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-n">120<span>+</span></div>
+      <div class="stat-lbl">Fleet Vehicles</div>
+      <div class="stat-qual">Owned, not brokered</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-n">98<span>%</span></div>
+      <div class="stat-lbl">On-Time Delivery</div>
+      <div class="stat-qual">Measured across all lanes</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-n">500<span>+</span></div>
+      <div class="stat-lbl">Active Clients</div>
+      <div class="stat-qual">Automotive · FMCG · Pharma</div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT MAIN -->
+<section class="contact-section">
+  <div class="contact-inner">
+
+    <!-- FORM -->
+    <div class="form-wrap">
+      <h2 class="form-heading">Request a Freight Quote</h2>
+      <p class="form-sub">Fill in your freight details and our team will respond with a detailed quote in under 4 business hours.</p>
+      <form>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" placeholder="Your full name">
+          </div>
+          <div class="form-group">
+            <label>Company</label>
+            <input type="text" placeholder="Company name">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Phone</label>
+            <input type="tel" placeholder="+91 XXXXX XXXXX">
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="you@company.com">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Origin City</label>
+            <input type="text" placeholder="Pickup location">
+          </div>
+          <div class="form-group">
+            <label>Destination City</label>
+            <input type="text" placeholder="Delivery location">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Service Type</label>
+            <select>
+              <option value="">Select service</option>
+              <option>Full Truck Load (FTL)</option>
+              <option>Part Truck Load (PTL)</option>
+              <option>ODC / Project Cargo</option>
+              <option>Packaging Solutions</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Cargo Type</label>
+            <input type="text" placeholder="e.g. Auto parts, FMCG goods">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Approx Weight (tonnes)</label>
+            <input type="text" placeholder="e.g. 10T, 20T">
+          </div>
+          <div class="form-group">
+            <label>Preferred Date</label>
+            <input type="date">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Additional Notes</label>
+          <textarea placeholder="Any special requirements, handling instructions, or questions..."></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Submit Quote Request</button>
+        <p class="form-disclaimer">By submitting this form, you agree to be contacted by Fortune Logistics regarding your freight enquiry. We do not share your information with third parties.</p>
+      </form>
+    </div>
+
+    <!-- CONTACT INFO -->
+    <div class="contact-info-card">
+      <div class="info-card-heading">Or Reach Us Directly</div>
+
+      <div class="info-item">
+        <div class="info-item-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .99h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        </div>
+        <div>
+          <div class="info-item-label">Phone</div>
+          <div class="info-item-value">+91 9970 318 707</div>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="info-item-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="info-item-label">Email</div>
+          <div class="info-item-value">info@fortunelogistics.in</div>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="info-item-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div>
+          <div class="info-item-label">Head Office</div>
+          <div class="info-item-value">Pune, Maharashtra, India</div>
+        </div>
+      </div>
+
+      <div class="info-divider"></div>
+
+      <a href="https://wa.me/919970318707" class="btn-wa-card" target="_blank">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Chat on WhatsApp
+      </a>
+
+      <div class="info-hours">
+        <strong style="color:#374151;font-size:12px">Business Hours</strong><br>
+        Monday – Saturday: 9:00 AM – 7:00 PM<br>
+        Operations: 24×7, 365 days
+      </div>
+
+      <div class="response-pill">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        Response within 4 business hours
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- OFFICE SECTION -->
+<section class="office-section">
+  <div class="office-inner">
+    <div class="s-tag">Our Locations</div>
+    <h2 class="s-title">Where We Operate From</h2>
+    <p style="font-size:15px;color:#6B7280;line-height:1.7">Fortune Logistics is headquartered in Pune with round-the-clock operations support.</p>
+    <div class="office-list">
+      <div class="office-row">
+        <div class="office-num">01</div>
+        <div class="office-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div class="office-title">Head Office</div>
+        <div class="office-desc">Pune, Maharashtra — our registered corporate office and primary client servicing location.</div>
+        <span class="office-tag">Pune, MH</span>
+      </div>
+      <div class="office-row">
+        <div class="office-num">02</div>
+        <div class="office-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <div class="office-title">Operations Centre</div>
+        <div class="office-desc">Fleet dispatch, GPS monitoring, and lane coordination — running 24×7 from our operations hub.</div>
+        <span class="office-tag">24×7 Ops</span>
+      </div>
+      <div class="office-row">
+        <div class="office-num">03</div>
+        <div class="office-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .99h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        </div>
+        <div class="office-title">24×7 Support Line</div>
+        <div class="office-desc">Round-the-clock customer support for active shipments — call, WhatsApp, or email anytime.</div>
+        <span class="office-tag">Always On</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="f-logo">
+        <img src="./fl_logo.jpeg" alt="Fortune Logistics">
+        <div class="f-logo-name">Fortune Logistics</div>
+      </div>
+      <p class="f-tagline">Better Logistics Solution for You. Pan-India road freight — delivered right, on time, every time.</p>
+      <div class="f-contact">
+        <a href="tel:+919970318707">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .99h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          +91 9970 318 707
+        </a>
+        <a href="mailto:info@fortunelogistics.in">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          info@fortunelogistics.in
+        </a>
+        <a href="#">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Pune, Maharashtra, India
+        </a>
+      </div>
+    </div>
+    <div class="f-col">
+      <div class="f-col-title">Services</div>
+      <a href="#">Full Truck Load</a>
+      <a href="#">Part Truck Load</a>
+      <a href="#">ODC / Project Cargo</a>
+      <a href="#">Packaging</a>
+    </div>
+    <div class="f-col">
+      <div class="f-col-title">Company</div>
+      <a href="#">About Us</a>
+      <a href="#">Fleet &amp; Capabilities</a>
+      <a href="#">Our Network</a>
+      <a href="#">Why Fortune</a>
+    </div>
+    <div class="f-col">
+      <div class="f-col-title">Industries</div>
+      <a href="#">Automotive</a>
+      <a href="#">FMCG</a>
+      <a href="#">Pharmaceuticals</a>
+      <a href="#">Industrial</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Fortune Logistics. All rights reserved. &nbsp;|&nbsp; <a href="#">Privacy Policy</a></span>
+    <span class="f-iso">ISO 9001-2015 Certified</span>
+  </div>
+</footer>
+
+<!--<div id="demo-toast" style="display:none;position:fixed;bottom:36px;left:50%;transform:translateX(-50%);background:#111827;color:#fff;font-family:'Inter',sans-serif;font-size:13px;font-weight:500;padding:12px 24px;border-radius:8px;box-shadow:0 8px 32px rgba(0,0,0,.28);z-index:99999;pointer-events:none;white-space:nowrap;border-left:3px solid #F47920">-->
+<!--  This is just a demo for Fortune Logistics. Links do not work.-->
+<!--</div>-->
+<!--<script>-->
+<!--(function(){-->
+<!--  var toast=document.getElementById('demo-toast'),timer;-->
+<!--  function show(){clearTimeout(timer);toast.style.display='block';timer=setTimeout(function(){toast.style.display='none';},2800);}-->
+<!--  document.addEventListener('click',function(e){-->
+<!--    var a=e.target.closest('a');-->
+<!--    if(a&&!a.classList.contains('wa-float')){e.preventDefault();show();}-->
+<!--    var btn=e.target.closest('button[type="submit"]');-->
+<!--    if(btn){e.preventDefault();show();}-->
+<!--  });-->
+<!--  var hamburger=document.getElementById('navHamburger');-->
+<!--  var mobileMenu=document.getElementById('mobileMenu');-->
+<!--  var mobileClose=document.getElementById('mobileClose');-->
+<!--  function openMenu(){hamburger.classList.add('open');mobileMenu.classList.add('open');document.body.style.overflow='hidden';}-->
+<!--  function closeMenu(){hamburger.classList.remove('open');mobileMenu.classList.remove('open');document.body.style.overflow='';}-->
+<!--  if(hamburger)hamburger.addEventListener('click',function(e){e.stopPropagation();openMenu();});-->
+<!--  if(mobileClose)mobileClose.addEventListener('click',function(e){e.stopPropagation();closeMenu();});-->
+<!--  if(mobileMenu)mobileMenu.addEventListener('click',function(e){if(e.target===mobileMenu)closeMenu();});-->
+<!--})();-->
+<!--</script>-->
+</body>
+</html>
+
+
+
+
+
+
