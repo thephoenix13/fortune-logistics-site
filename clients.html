@@ -87,8 +87,8 @@ nav{background:#fff;border-bottom:1px solid #F3F4F6;position:sticky;top:0;z-inde
 .client-card{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 24px;border:1px solid #F3F4F6;border-radius:12px;transition:all .3s;background:#fff;min-height:180px}
 .client-card:hover{border-color:#F47920;box-shadow:0 8px 32px rgba(244,121,32,.08);transform:translateY(-4px)}
 .client-logo-wrap{width:140px;height:70px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;flex-shrink:0}
-.client-logo{max-width:100%;max-height:100%;object-fit:contain;filter:grayscale(100%);opacity:.75;transition:all .3s}
-.client-card:hover .client-logo{filter:grayscale(0%);opacity:1}
+.client-logo{max-width:100%;max-height:100%;object-fit:contain;transition:all .3s}
+.client-card:hover .client-logo{transform:scale(1.05)}
 .client-name{font-size:13px;font-weight:700;color:#374151;text-align:center;letter-spacing:.02em}
 .client-industry{font-size:11px;color:#9CA3AF;margin-top:6px;text-transform:uppercase;letter-spacing:.08em}
 
@@ -288,123 +288,92 @@ footer{background:#0F172A;padding:64px 48px 24px}
 <!-- CLIENTS GRID -->
 <section class="clients-grid-section">
   <div class="clients-grid">
-    <!-- Client 1: Aberdare Technologies -->
     <div class="client-card">
       <div class="client-logo-wrap">
-        <img src="https://aberdaretech.com/wp-content/uploads/2021/07/Aberdare-Logo.png" alt="Aberdare Technologies" class="client-logo" onerror="this.style.display='none';this.parentElement.innerHTML='<svg width=\'80\' height=\'40\' viewBox=\'0 0 80 40\'><rect width=\'80\' height=\'40\' fill=\'#F47920\' rx=\'4\'/><text x=\'40\' y=\'25\' text-anchor=\'middle\' fill=\'white\' font-size=\'10\' font-weight=\'bold\'>ABERDARE</text></svg>'">
+        <img src="client_logos/aberdare.png" alt="Aberdare Technologies" class="client-logo" loading="lazy">
       </div>
       <div class="client-name">Aberdare Technologies</div>
       <div class="client-industry">Electrical Components</div>
     </div>
 
-    <!-- Client 2: Placeholder -->
     <div class="client-card">
       <div class="client-logo-wrap">
-        <svg width="120" height="60" viewBox="0 0 120 60">
-          <rect width="120" height="60" fill="#00AEEF" rx="6"/>
-          <text x="60" y="35" text-anchor="middle" fill="white" font-size="11" font-weight="bold">CLIENT LOGO</text>
-        </svg>
-      </div>
-      <div class="client-name">Enterprise Partner</div>
-      <div class="client-industry">Manufacturing</div>
-    </div>
-
-    <!-- Client 3: Panchshil Realty -->
-    <div class="client-card">
-      <div class="client-logo-wrap">
-        <svg width="120" height="60" viewBox="0 0 120 60">
-          <rect width="120" height="60" fill="#1a1a2e" rx="6"/>
-          <text x="60" y="30" text-anchor="middle" fill="white" font-size="12" font-weight="bold">PANCSHIL</text>
-          <text x="60" y="44" text-anchor="middle" fill="white" font-size="8">REALTY</text>
-        </svg>
-      </div>
-      <div class="client-name">Panchshil Realty</div>
-      <div class="client-industry">Real Estate</div>
-    </div>
-
-    <!-- Client 4: Valmet -->
-    <div class="client-card">
-      <div class="client-logo-wrap">
-        <svg width="120" height="60" viewBox="0 0 120 60">
-          <rect width="120" height="60" fill="#005EB8" rx="6"/>
-          <text x="60" y="35" text-anchor="middle" fill="white" font-size="14" font-weight="bold">VALMET</text>
-        </svg>
-      </div>
-      <div class="client-name">Valmet</div>
-      <div class="client-industry">Industrial Technology</div>
-    </div>
-
-    <!-- Client 5: Placeholder -->
-    <div class="client-card">
-      <div class="client-logo-wrap">
-        <svg width="120" height="60" viewBox="0 0 120 60">
-          <rect width="120" height="60" fill="#F47920" rx="6"/>
-          <text x="60" y="35" text-anchor="middle" fill="white" font-size="11" font-weight="bold">CLIENT LOGO</text>
-        </svg>
-      </div>
-      <div class="client-name">Strategic Partner</div>
-      <div class="client-industry">Automotive</div>
-    </div>
-
-    <!-- Client 6: Placeholder -->
-    <div class="client-card">
-      <div class="client-logo-wrap">
-        <svg width="120" height="60" viewBox="0 0 120 60">
-          <rect width="120" height="60" fill="#00AEEF" rx="6"/>
-          <text x="60" y="35" text-anchor="middle" fill="white" font-size="11" font-weight="bold">CLIENT LOGO</text>
-        </svg>
-      </div>
-      <div class="client-name">Industry Leader</div>
-      <div class="client-industry">FMCG</div>
-    </div>
-
-    <!-- Client 7: Placeholder -->
-    <div class="client-card">
-      <div class="client-logo-wrap">
-        <svg width="120" height="60" viewBox="0 0 120 60">
-          <rect width="120" height="60" fill="#6B7280" rx="6"/>
-          <text x="60" y="35" text-anchor="middle" fill="white" font-size="11" font-weight="bold">CLIENT LOGO</text>
-        </svg>
-      </div>
-      <div class="client-name">Global Enterprise</div>
-      <div class="client-industry">Technology</div>
-    </div>
-
-    <!-- Client 8: Raychem RPG -->
-    <div class="client-card">
-      <div class="client-logo-wrap">
-        <svg width="120" height="60" viewBox="0 0 120 60">
-          <rect width="120" height="60" fill="#E63946" rx="6"/>
-          <text x="60" y="28" text-anchor="middle" fill="white" font-size="10" font-weight="bold">RAYCHEM</text>
-          <text x="60" y="42" text-anchor="middle" fill="white" font-size="10" font-weight="bold">RPG</text>
-        </svg>
+        <img src="client_logos/raychem_rpg.png" alt="Raychem RPG" class="client-logo" loading="lazy">
       </div>
       <div class="client-name">Raychem RPG</div>
       <div class="client-industry">Electrical Solutions</div>
     </div>
 
-    <!-- Client 9: Placeholder -->
     <div class="client-card">
       <div class="client-logo-wrap">
-        <svg width="120" height="60" viewBox="0 0 120 60">
-          <rect width="120" height="60" fill="#F47920" rx="6"/>
-          <text x="60" y="35" text-anchor="middle" fill="white" font-size="11" font-weight="bold">CLIENT LOGO</text>
-        </svg>
+        <img src="client_logos/panchshil.webp" alt="Panchshil Realty" class="client-logo" loading="lazy">
       </div>
-      <div class="client-name">Premium Client</div>
-      <div class="client-industry">Pharmaceuticals</div>
+      <div class="client-name">Panchshil Realty</div>
+      <div class="client-industry">Real Estate</div>
     </div>
 
-    <!-- Client 10: Ravin Group -->
     <div class="client-card">
       <div class="client-logo-wrap">
-        <svg width="120" height="60" viewBox="0 0 120 60">
-          <rect width="120" height="60" fill="#1F2937" rx="6"/>
-          <text x="60" y="35" text-anchor="middle" fill="white" font-size="13" font-weight="bold">RAVIN</text>
-        </svg>
+        <img src="client_logos/valmet.png" alt="Valmet" class="client-logo" loading="lazy">
+      </div>
+      <div class="client-name">Valmet</div>
+      <div class="client-industry">Industrial Technology</div>
+    </div>
+
+    <div class="client-card">
+      <div class="client-logo-wrap">
+        <img src="client_logos/ravin.png" alt="Ravin Group" class="client-logo" loading="lazy">
       </div>
       <div class="client-name">Ravin Group</div>
       <div class="client-industry">Diversified Industries</div>
+    </div>
+
+    <div class="client-card">
+      <div class="client-logo-wrap">
+        <img src="client_logos/enpro.png" alt="Enpro Industries" class="client-logo" loading="lazy">
+      </div>
+      <div class="client-name">Enpro Industries</div>
+      <div class="client-industry">Engineering</div>
+    </div>
+
+    <div class="client-card">
+      <div class="client-logo-wrap">
+        <img src="client_logos/chloride_metals.png" alt="Chloride Metals" class="client-logo" loading="lazy">
+      </div>
+      <div class="client-name">Chloride Metals</div>
+      <div class="client-industry">Metals & Mining</div>
+    </div>
+
+    <div class="client-card">
+      <div class="client-logo-wrap">
+        <img src="client_logos/maas_global_group.jpg" alt="Maas Global Group" class="client-logo" loading="lazy">
+      </div>
+      <div class="client-name">Maas Global Group</div>
+      <div class="client-industry">Global Trade</div>
+    </div>
+
+    <div class="client-card">
+      <div class="client-logo-wrap">
+        <img src="client_logos/galcons_india.png" alt="Galcons India" class="client-logo" loading="lazy">
+      </div>
+      <div class="client-name">Galcons India</div>
+      <div class="client-industry">Infrastructure</div>
+    </div>
+
+    <div class="client-card">
+      <div class="client-logo-wrap">
+        <img src="client_logos/great_weld.png" alt="Great Weld" class="client-logo" loading="lazy">
+      </div>
+      <div class="client-name">Great Weld</div>
+      <div class="client-industry">Construction Equipment</div>
+    </div>
+
+    <div class="client-card">
+      <div class="client-logo-wrap">
+        <img src="client_logos/hira.png" alt="Hira" class="client-logo" loading="lazy">
+      </div>
+      <div class="client-name">Hira</div>
+      <div class="client-industry">Industrial Supplies</div>
     </div>
   </div>
 </section>
@@ -452,8 +421,10 @@ footer{background:#0F172A;padding:64px 48px 24px}
     <span class="cl-name">Ravin Group</span>
     <span class="cl-name">Enpro Industries</span>
     <span class="cl-name">Chloride Metals</span>
-    <span class="cl-name">Maass Global</span>
-    <span class="cl-name">Deccan</span>
+    <span class="cl-name">Maas Global Group</span>
+    <span class="cl-name">Galcons India</span>
+    <span class="cl-name">Great Weld</span>
+    <span class="cl-name">Hira</span>
   </div>
 </div>
 
